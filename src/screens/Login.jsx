@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { serverBaseURL } from "../util";
 
 export default function Login() {
   const navigate = useNavigate();
@@ -9,7 +10,7 @@ export default function Login() {
   });
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`http://localhost:3000/user/login-user`, {
+    const response = await fetch(`${serverBaseURL}/user/login-user`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
