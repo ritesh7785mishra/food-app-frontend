@@ -4,6 +4,7 @@ import Badge from "react-bootstrap/Badge";
 import Modal from "../Modal";
 import Cart from "../screens/Cart";
 import { useCart } from "./ContextReducer";
+import kapilLogo from "../assets/kapil_thullu.jpg";
 
 export default function Navbar() {
   const [cartView, setCartView] = useState(false);
@@ -15,45 +16,8 @@ export default function Navbar() {
   };
   return (
     <div>
-      {/* <nav className="navbar navbar-expand-lg navbar-dark bg-success">
-        <div className="container-fluid">
-          <Link className="navbar-brand fs-1 fst-italic" to="/">
-            GoFood
-          </Link>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="/navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav">
-              <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">
-                  Home
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/login">
-                  Login
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link className="nav-link" to="/createuser">
-                  Sign Up
-                </Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav> */}
       <nav
-        className="navbar navbar-expand-lg navbar-light"
+        className="navbar navbar-expand-lg navbar-light w-90"
         style={{
           background:
             "linear-gradient(48deg, rgba(245,9,9,1) 0%, rgba(177,20,100,1) 100%)",
@@ -61,12 +25,32 @@ export default function Navbar() {
         }}
       >
         <div className="container-fluid">
-          <Link
-            className="navbar-brand fs-1 fst-italic mx-3 position-sticky z-3"
-            to="/"
-          >
-            Zwigato
-          </Link>
+          <div className="d-flex justify-content-center align-items-center">
+            <div
+              className="w-10 py-1"
+              style={{
+                width: "3.5rem",
+                height: "4rem",
+              }}
+            >
+              <img
+                src={kapilLogo}
+                alt=""
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: "25%",
+                }}
+              />
+            </div>
+            <Link
+              className="navbar-brand fs-1 fst-italic mx-4 position-sticky z-3"
+              to="/"
+            >
+              Zwigato
+            </Link>
+          </div>
+
           <button
             className="navbar-toggler"
             type="button"
