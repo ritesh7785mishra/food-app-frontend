@@ -1,8 +1,9 @@
 import React from "react";
 import DeleteIcon from "@mui/icons-material/Delete";
 import { useCart, useDispatchCart } from "../components/ContextReducer";
-import { serverBaseURL } from "../util";
+
 export default function Cart() {
+  const { VITE_serverBaseURL } = import.meta.env;
   let data = useCart();
   let dispatch = useDispatchCart();
   if (data.length === 0) {
@@ -15,7 +16,7 @@ export default function Cart() {
   const handleCheckOut = async () => {
     let userEmail = localStorage.getItem("userEmail");
 
-    let response = await fetch(`${serverBaseURL}/order/order-data`, {
+    let response = await fetch(`${VITE_serverBaseURL}/order/order-data`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

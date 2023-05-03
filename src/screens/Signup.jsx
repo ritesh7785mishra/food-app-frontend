@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { serverBaseURL } from "../util";
 
 export default function Signup() {
+  const { VITE_serverBaseURL } = import.meta.env;
   const navigate = useNavigate();
   const [credentials, setCredentials] = useState({
     name: "",
@@ -12,7 +12,7 @@ export default function Signup() {
   });
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`${serverBaseURL}/user/create-user`, {
+    const response = await fetch(`${VITE_serverBaseURL}/user/create-user`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

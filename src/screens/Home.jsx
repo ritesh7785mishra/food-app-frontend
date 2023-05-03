@@ -6,14 +6,15 @@ import Navbar from "../components/Navbar";
 // import Carousel from "../components/CarouseComponent";
 import CarouselComponent from "../components/CarouseComponent";
 //learn usecallback and usememo
-import { serverBaseURL } from "../util";
+
 const Home = () => {
+  const { VITE_serverBaseURL } = import.meta.env;
   const [search, setSearch] = useState("");
   const [foodCat, setFoodCat] = useState([]);
   const [foodItems, setFoodItems] = useState([]);
 
   const loadFoodItems = async () => {
-    const res = await fetch(`${serverBaseURL}/food/food-items`);
+    const res = await fetch(`${VITE_serverBaseURL}/food/food-items`);
 
     const data = await res.json();
 
@@ -21,7 +22,7 @@ const Home = () => {
   };
 
   const loadFoodCategory = async () => {
-    const res = await fetch(`${serverBaseURL}/food/food-category`);
+    const res = await fetch(`${VITE_serverBaseURL}/food/food-category`);
     const data = await res.json();
     setFoodCat(data.food_category);
   };

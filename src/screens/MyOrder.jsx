@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import { serverBaseURL } from "../util";
 
 export default function MyOrder() {
+  const { VITE_serverBaseURL } = import.meta.env;
   const [orderData, setorderData] = useState([]);
 
   const fetchMyOrder = async () => {
     console.log(localStorage.getItem("userEmail"));
-    const res = await fetch(`${serverBaseURL}/order/user-orders`, {
+    const res = await fetch(`${VITE_serverBaseURL}/order/user-orders`, {
       // credentials: 'include',
       // Origin:"http://localhost:3000/login",
       method: "POST",
